@@ -1,0 +1,42 @@
+.contact-list {
+  text-align: center;
+    
+    margin: 0;
+    padding: 0;
+    max-width: 600px;
+    /* padding: 20px; */
+    /* border: 1px solid grey; */
+    background-color: rgb(187, 186, 247);
+    
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
+    .contact-list-item {
+      align-items: center;
+      display: flex;
+      list-style: none;
+      text-align: center;
+      
+       /* margin-top: 10px; */
+    }
+
+    .contact-name {
+      padding: 10px;
+      font-weight: 500;
+    }
+
+    .contact-number {
+      margin: 0;
+      padding: 10px;
+    }
+
+    .delete-btn {
+      margin-top: 10px;
+    margin-bottom: 10px;
+    width: 120px;
+    height: 20px;
+    background-color: blue;
+    color: white;
+    }

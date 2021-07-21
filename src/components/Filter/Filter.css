@@ -1,0 +1,19 @@
+.label-filter {
+  /* display: flex; */
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+
+    width: 400px;
+    /* border: 1px solid grey; */
+    /* background-color: rgb(216, 158, 156); */
+    text-align: center;
+  }
+
+  .input-filter {
+    margin: 20px;
+    
+    padding-left: 20px;
+  }
