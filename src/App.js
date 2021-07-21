@@ -6,6 +6,7 @@ import shortid from 'shortid';
 import './App.css';
 
 
+
 class App extends Component {
   state = {
     contacts: [
@@ -43,7 +44,28 @@ class App extends Component {
       { filter: event.currentTarget.value
       }
     )
-  }
+  };
+
+  componentDidMount() {
+    console.log('App componentDidMount');
+
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if(parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('App componentDidUpdate');
+
+    if(this.state.contacts !== prevState.contacts) {
+      console.log("new contacts");
+    }
+
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  };
 
   render() {
     const normalizedThisFilterState = this.state.filter.toLowerCase();
