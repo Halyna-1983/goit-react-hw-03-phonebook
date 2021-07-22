@@ -8,6 +8,28 @@ import './App.css';
 
 
 class App extends Component {
+
+  componentDidMount() {
+    console.log('App componentDidMount');
+
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if(parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('App componentDidUpdate');
+
+    if(this.state.contacts !== prevState.contacts) {
+      console.log("new contacts");
+    }
+
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  };
+
   state = {
     contacts: [
       {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
@@ -19,7 +41,6 @@ class App extends Component {
     name: '',
     number: ''
   };
-
 
   deleteContact = (contactId) => {
     this.setState(
@@ -44,27 +65,6 @@ class App extends Component {
       { filter: event.currentTarget.value
       }
     )
-  };
-
-  componentDidMount() {
-    console.log('App componentDidMount');
-
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-
-    if(parsedContacts) {
-      this.setState({ contacts: parsedContacts });
-    }
-  };
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log('App componentDidUpdate');
-
-    if(this.state.contacts !== prevState.contacts) {
-      console.log("new contacts");
-    }
-
-    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
   };
 
   render() {
